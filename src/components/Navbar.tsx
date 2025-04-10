@@ -17,6 +17,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  }, []);
+
   return (
     <motion.header
       initial={false}
@@ -40,11 +46,17 @@ export default function Navbar() {
           <a href="#testimonials" className="hover:text-primary transition">
             Testimonials
           </a>
-          <a href="#cta" className="hover:text-primary transition">
+          <button
+            onClick={() => {
+              const el = document.getElementById("cta");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+                history.replaceState(null, "", " ");
+              }
+            }}
+            className="hover:text-primary transition"
+          >
             Get Started
-          </a>
-          <button className="ml-4 px-5 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition">
-            Login
           </button>
         </div>
 
@@ -61,27 +73,36 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden px-6 pt-4 pb-6 space-y-4 bg-white shadow-md"
+      <motion.div
+        initial={false}
+        animate={{
+          height: menuOpen ? "auto" : 0,
+          opacity: menuOpen ? 1 : 0,
+        }}
+        className={`overflow-hidden transition-all duration-300 md:hidden px-6 ${
+          menuOpen ? "py-4" : "py-0"
+        } bg-white shadow-md space-y-4`}
+      >
+        <a href="#features" className="block hover:text-primary">
+          Features
+        </a>
+        <a href="#testimonials" className="block hover:text-primary">
+          Testimonials
+        </a>
+        <button
+          onClick={() => {
+            const el = document.getElementById("cta");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+              history.replaceState(null, "", " ");
+              setMenuOpen(false);
+            }
+          }}
+          className="hover:text-primary transition block"
         >
-          <a href="#features" className="block hover:text-primary">
-            Features
-          </a>
-          <a href="#testimonials" className="block hover:text-primary">
-            Testimonials
-          </a>
-          <a href="#cta" className="block hover:text-primary">
-            Get Started
-          </a>
-          <button className="w-full mt-2 px-5 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition">
-            Login
-          </button>
-        </motion.div>
-      )}
+          Get Started
+        </button>
+      </motion.div>
     </motion.header>
   );
 }

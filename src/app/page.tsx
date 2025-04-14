@@ -12,23 +12,20 @@ import ContactForm from "@/components/ContactForm";
 export default function Home() {
   return (
     <>
-      <section
-        id="hero"
-        className="relative bg-gradient-to-b from-white to-gray-100 text-gray-900 px-4 sm:px-6 pt-16 sm:pt-20 md:pt-28 pb-12 md:pb-24 overflow-hidden"
-      >
+      <section id="hero" className="relative bg-white text-gray-900 ...">
         <Hero />
       </section>
 
       <section
         id="features"
-        className="scroll-mt-24 pt-12 md:pt-16 pb-24 bg-gray-50"
+        className="scroll-mt-24 pt-12 pb-16 sm:pb-20 md:pt-16 md:pb-24 bg-gray-50"
       >
         <Features />
       </section>
 
       <section
         id="about"
-        className="bg-white pt-24 pb-16 md:pb-24 px-6 text-gray-900"
+        className="bg-white pt-6 sm:pt-8 md:pt-16 pb-4 sm:pb-6 md:pb-16 px-6 text-gray-900"
       >
         <About />
       </section>

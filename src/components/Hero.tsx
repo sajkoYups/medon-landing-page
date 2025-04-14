@@ -6,20 +6,21 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-gradient-to-b from-white to-gray-100 text-gray-900 px-4 sm:px-6 py-16 sm:py-20 md:py-28 overflow-hidden"
+      className="relative bg-white text-gray-900 px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 pb-8 md:pb-16 overflow-hidden"
     >
-      {/* Background Blob */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] bg-primary/10 rounded-full blur-[100px] sm:blur-[150px] z-0"></div>
+      {/* Background Blob - now larger and lower */}
+      <div className="absolute top-[-150px] left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[160px] z-0"></div>
 
-      {/* Mesh Shape Animation */}
+      {/* Mesh Shape Animation - now lower and bigger to avoid empty space */}
       <motion.div
-        className="absolute bottom-[-80px] right-[-80px] w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] bg-purple-200/30 rounded-full blur-3xl z-0"
+        className="absolute bottom-[-160px] right-[-120px] w-[400px] h-[400px] bg-purple-200/30 rounded-full blur-[120px] z-0"
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
 
+      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 sm:gap-12">
-        {/* Text */}
+        {/* Text Section */}
         <motion.div
           className="w-full md:w-1/2 text-center md:text-left"
           initial={{ opacity: 0, y: 30 }}
@@ -44,7 +45,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Image */}
+        {/* Image Section */}
         <motion.div
           className="w-full md:w-1/2 flex justify-center"
           initial={{ opacity: 0, y: 30 }}
@@ -55,7 +56,7 @@ export default function Hero() {
             <img
               src="/images/hero-doctor.jpg"
               alt="Doctor using smartphone"
-              className="w-full h-auto object-cover rounded-[1.5rem] scale-105 hover:scale-110 transition-transform duration-700"
+              className="w-full h-auto object-cover rounded-[1.5rem] transition-transform duration-700"
             />
             <div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-primary/20"></div>
           </div>

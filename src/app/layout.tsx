@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
         <Navbar />
-        <main className="pt-20 md:pt-24">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

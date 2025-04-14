@@ -3,10 +3,17 @@
 import { motion } from "framer-motion";
 
 export default function Hero() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
-      className="relative bg-white text-gray-900 px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 pb-8 md:pb-16 overflow-hidden"
+      className="relative bg-white text-gray-900 px-4 sm:px-6 pt-12 sm:pt-16 md:pt-20 pb-8 md:pb-16 overflow-hidden h-[70vh] flex items-center justify-center"
     >
       {/* Background Blob - now larger and lower */}
       <div className="absolute top-[-150px] left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[160px] z-0"></div>
@@ -39,6 +46,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               className="bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition"
+              onClick={scrollToContact}
             >
               Get Started
             </motion.button>

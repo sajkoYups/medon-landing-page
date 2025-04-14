@@ -12,7 +12,10 @@ import ContactForm from "@/components/ContactForm";
 export default function Home() {
   return (
     <>
-      <section id="hero" className="relative bg-white text-gray-900 ...">
+      <section
+        id="hero"
+        className="relative bg-white text-gray-900 mt-16 h-[70vh]"
+      >
         <Hero />
       </section>
 

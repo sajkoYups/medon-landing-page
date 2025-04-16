@@ -64,7 +64,7 @@ export default function ContactForm() {
 
         {submitted ? (
           <p className="text-green-600 font-semibold">
-            Thank you! We'll get back to you soon.
+            Thank you! We&#39;ll get back to you soon.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 text-left">

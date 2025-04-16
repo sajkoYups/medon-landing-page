@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -35,10 +36,12 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <img
+          <Image
             src="/images/doctor-using-app.jpg"
             alt="Illustration of healthcare app or doctor"
-            className="w-full h-auto max-w-[480px] object-cover rounded-xl shadow-md"
+            width={480}
+            height={320}
+            className="w-full h-auto object-cover rounded-xl shadow-md"
           />
         </motion.div>
       </div>

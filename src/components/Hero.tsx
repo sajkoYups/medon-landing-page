@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -61,10 +62,12 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[500px] rounded-[1.5rem] shadow-xl overflow-hidden border-4 border-primary/10">
-            <img
+            <Image
               src="/images/hero-doctor.jpg"
               alt="Doctor using smartphone"
               className="w-full h-auto object-cover rounded-[1.5rem] transition-transform duration-700"
+              width={500}
+              height={600}
             />
             <div className="absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-primary/20"></div>
           </div>
